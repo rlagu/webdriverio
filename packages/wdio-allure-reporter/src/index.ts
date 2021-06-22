@@ -155,7 +155,7 @@ class AllureReporter extends WDIOReporter {
             const browserstackVersion = caps.os_version || caps.osVersion
             const version = browserstackVersion || caps.browserVersion || caps.version || caps.platformVersion || ''
             const paramName = (deviceName || device) ? 'device' : 'browser'
-            const paramValue = version ? `${targetName}-${version}` : targetName
+            const paramValue = caps.platformName; //version ? `${targetName}-${version}` : targetName
             currentTest.addParameter('argument', paramName, paramValue)
         } else {
             currentTest.addParameter('argument', 'isMultiremote', 'true')
